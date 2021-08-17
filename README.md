@@ -1,0 +1,3 @@
+# SQL Querys
+
+Knowledge demonstration.
