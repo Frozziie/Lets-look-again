@@ -1,2 +1,5 @@
-# SQL Repository
-Knowledge demonstration.
+# SQL
+.Querys
+
+# Python
+.Exercises
