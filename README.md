@@ -1,2 +1,2 @@
-# SQL Querys
+# SQL Repository
 Knowledge demonstration.
