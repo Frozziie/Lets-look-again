@@ -20,7 +20,7 @@ def create_phone_number_2(number_list):
     return "({}{}{}) {}{}{}-{}{}{}{}".format(*number_list)
 
 print(create_phone_number_2([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
-#print(create_phone_number([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))
-#print(create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
-#print(create_phone_number([0, 2, 3, 0, 5, 6, 0, 8, 9, 0]))
-#print(create_phone_number([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]))
+print(create_phone_number([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))
+print(create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+print(create_phone_number([0, 2, 3, 0, 5, 6, 0, 8, 9, 0]))
+print(create_phone_number([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]))
