@@ -1,7 +1,6 @@
-# SQL
-- General queries.
-- Table creation queries.
-- View creation queries.
+# PostgreSQL
+- General queries (creation, joins, views, subqueries).
+- Interview queries.
 
 # Python
 - **CodeWars** is a website where you can test your knowledge with exercises made by the community.
