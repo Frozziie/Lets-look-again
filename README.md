@@ -1,7 +1,7 @@
 # SQL
-- General querys.
-- Table creation querys.
-- View creation querys.
+- General queries.
+- Table creation queries.
+- View creation queries.
 
 # Python
 - **CodeWars** is a website where you can test your knowledge with exercises made by the community.
