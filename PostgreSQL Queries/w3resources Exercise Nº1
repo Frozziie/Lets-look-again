@@ -1,0 +1,213 @@
+-- 1. Write a SQL statement to create a simple table countries including columns country_id,country_name and region_id.
+
+CREATE TABLE countries(
+	country_id SMALLINT,
+	country_name VARCHAR(30),
+	region_id SMALLINT,
+	PRIMARY KEY(country_id)
+);
+
+SELECT *
+FROM countries;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+-- 3. Write a SQL statement to create the structure of a table dup_countries similar to countries.
+
+DROP TABLE dup_countries;
+
+CREATE TABLE dup_countries as (SELECT * FROM countries) WITH NO DATA;
+
+SELECT * 
+FROM dup_countries;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+-- 4. Write a SQL statement to create a duplicate copy of countries table including structure and data by name dup_countries.
+
+DROP TABLE dup_countries;
+
+CREATE TABLE dup_countries as (SELECT * FROM countries);
+
+SELECT * 
+FROM dup_countries;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+-- 5. Write a SQL statement to create a table countries set a constraint NULL.
+
+DROP TABLE countries;
+
+CREATE TABLE IF NOT EXISTS countries (
+	country_id SMALLINT NOT NULL,
+	country_name VARCHAR(30) NOT NULL,
+	region_id SMALLINT NOT NULL,
+	PRIMARY KEY(country_id)
+);
+
+SELECT *
+FROM countries;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+6. Write a SQL statement to create a table named jobs including columns job_id, job_title, min_salary, 
+	max_salary and check whether the max_salary amount exceeding the upper limit 25000.
+*/
+
+CREATE TABLE IF NOT EXISTS jobs (
+	job_id SMALLINT NOT NULL,
+	job_title VARCHAR(30) NOT NULL,
+	min_salary INT NOT NULL,
+	max_salary INT NOT NULL,
+	CHECK (max_salary <= 25000),
+	PRIMARY KEY(job_id)
+);
+
+SELECT *
+FROM jobs;
+
+-- Check insertion examples to test your query.
+INSERT INTO jobs (job_id, job_title, min_salary, max_salary)
+VALUES 	(1, 'Data Analyst', 2000, 2500),
+		(2, 'Data Engineer', 15000, 25001);
+		
+TRUNCATE TABLE jobs;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+7. Write a SQL statement to create a table named countries including columns country_id, country_name and region_id and make sure that no countries except Italy, 
+	India and China will be entered in the table.
+*/
+
+DROP TABLE countries;
+
+CREATE TABLE IF NOT EXISTS countries (
+	country_id SMALLINT NOT NULL,
+	country_name VARCHAR(30) NOT NULL,
+	CHECK (country_name IN('Italy','India','China'),
+	region_id SMALLINT NOT NULL,
+	PRIMARY KEY(country_id)
+);
+
+-- Check insertion examples to test your query.
+INSERT INTO countries (country_id, country_name, region_id)
+VALUES 	(1, 'Italy', 1),
+		(2, 'India', 2),
+		(3, 'China', 3),
+		(4, 'Argentina', 4);
+
+SELECT *
+FROM countries;
+
+TRUNCATE TABLE countries;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+	
+/*
+8. Write a SQL statement to create a table named countries including columns country_id, country_name and region_id 
+	and make sure that no duplicate data against column country_id will be allowed at the time of insertion.
+*/
+
+DROP TABLE countries;
+
+CREATE TABLE IF NOT EXISTS countries (
+	country_id SMALLINT NOT NULL,
+	country_name VARCHAR(30) NOT NULL,
+	region_id SMALLINT NOT NULL,
+	PRIMARY KEY(country_id),
+	UNIQUE(country_id)
+);
+
+-- Check insertion examples to test your query.
+INSERT INTO countries (country_id, country_name, region_id)
+VALUES 	(1, 'Italy', 1),
+		(1, 'India', 2);
+
+SELECT *
+FROM countries;
+
+TRUNCATE TABLE countries;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+9. Write a SQL statement to create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, 
+	the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned 
+	for the specified columns.
+*/
+	
+DROP TABLE jobs;
+
+CREATE TABLE IF NOT EXISTS jobs (
+	job_id SMALLINT NOT NULL,
+	job_title VARCHAR(30) DEFAULT ' ',
+	min_salary INT DEFAULT 8000,
+	max_salary INT DEFAULT NULL,
+	PRIMARY KEY(job_id)
+);
+
+SELECT *
+FROM jobs;
+
+-- Check insertion examples to test your query.
+INSERT INTO jobs (job_id)
+VALUES 	(1);
+		
+TRUNCATE TABLE jobs;
+	
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+10. Write a SQL statement to create a table named countries including columns country_id, country_name and region_id
+	and make sure that the country_id column will be a key field which will not contain any duplicate data at the time of insertion. 
+*/
+
+DROP TABLE countries;
+
+CREATE TABLE IF NOT EXISTS countries (
+	country_id SMALLINT NOT NULL,
+	country_name VARCHAR(30) NOT NULL,
+	region_id SMALLINT NOT NULL,
+	PRIMARY KEY(country_id),
+	UNIQUE(country_id)
+);
+
+-- Check insertion examples to test your query.
+INSERT INTO countries (country_id, country_name, region_id)
+VALUES 	(1, 'Italy', 1),
+		(1, 'India', 2);
+
+SELECT *
+FROM countries;
+
+TRUNCATE TABLE countries;
+	
+----------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+11. Write a SQL statement to create a table countries including columns country_id, country_name and region_id 
+	and make sure that the column country_id will be unique and store an auto-incremented value.
+*/
+	
+DROP TABLE countries;
+
+CREATE TABLE IF NOT EXISTS countries (
+	country_id SERIAL,
+	country_name VARCHAR(30) NOT NULL,
+	region_id SMALLINT NOT NULL,
+	PRIMARY KEY(country_id),
+	UNIQUE(country_id)
+);
+
+-- Check insertion examples to test your query.
+INSERT INTO countries (country_name, region_id)
+VALUES 	('Italy', 1),
+		('India', 2);
+
+SELECT *
+FROM countries;
+
+TRUNCATE TABLE countries;
