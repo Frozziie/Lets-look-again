@@ -1,5 +1,4 @@
-# My Knowledge
-This is a place where I come to re-learn concepts with already done exercises.
+Hello everyone, I want this repository to be a place where I can come back to old lessons made by me when I was in my learning process.
 
 ## PostgreSQL
 - General queries (creation, joins, views, subqueries).
