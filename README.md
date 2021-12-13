@@ -11,3 +11,8 @@ Hello everyone, I want this repository to be a place where I can come back to ol
 
 ## Javascript
 - **CodeWars** is a website where you can test your knowledge with exercises made by the community.
+
+JS/
+  Exercises/
+    7Kyu/..
+    8Kyu/..
